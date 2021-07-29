@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const {A, validate} = require('../models/user')
+const {User, validate} = require('../models/user')
+const bcrypt = require('bcrypt')
 
 // get
 router.get('/', async (req, res) => {
@@ -26,7 +27,13 @@ router.post('/', async (req, res) => {
     if (email) return res.status(400).send('Invalid email or password')
 
     // creating the user
-    const user = await new User(req.body).save()
+    let user =  new User(req.body)
+
+    // hashing user password
+    const salt = await bcrypt.genSalt(10)
+    user.password = await bcrypt.hash(user.password, salt)
+    await user.save()
+
     res.send(user)
 })
 
@@ -41,6 +48,13 @@ router.put('/:id', async (req, res) => {
     )
 
     if (!user) return res.status(404).send('That user does not exist')
+    
+    // hashing the user
+    const salt = await bcrypt.genSalt(10)
+    user.password = await bcrypt.hash(user.password, salt)
+
+    await user.save()
+    
     res.send(user)
 })
 

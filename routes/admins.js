@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {Admin, validate} = require('../models/admin')
 const _ = require('lodash')
+const bcrypt = require('bcrypt')
 
 //get request
 router.get('/', async (req, res) => {
@@ -29,7 +30,7 @@ router.post('/', async (req, res) => {
     const username = await Admin.findOne({username: req.body.username})
     if (username) return res.status(400).send("Username already taken")
 
-    let admin = await new Admin(_.pick(req.body, [
+    let admin =  new Admin(_.pick(req.body, [
         'fName',
         'lName',
         'username',
@@ -37,7 +38,12 @@ router.post('/', async (req, res) => {
         'email',
         'password'
     ]))
-    admin.save()
+
+    // hashing passwords
+    const salt = await bcrypt.genSalt(10)
+    admin.password= await bcrypt.hash(admin.password, salt)
+
+    await admin.save()
     res.send(admin)
 })
 
@@ -52,6 +58,12 @@ router.put('/:id', async (req, res) => {
         {new: true}
     )
     if (!admin) res.status(404).send("User doesn't exist")
+
+    // hashing the passwords
+    const salt = await bcrypt.genSalt(10)
+    admin.password = await bcrypt.hash(admin.password, salt)
+
+    await admin.save()
     res.send(admin)
 })
 
