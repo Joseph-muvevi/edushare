@@ -1,6 +1,8 @@
 const Joi = require('joi')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const jwt = require("jsonwebtoken")
+const config = require('config')
 
 // the admin schema
 const adminSchema = new Schema({
@@ -42,11 +44,22 @@ const adminSchema = new Schema({
         required: true,
         minlength: 8,
         maxlength: 100
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 })
 
+// adminshema methods
+adminSchema.methods.generateAdminToken = function(){
+    const token = jwt.sign({_id: this._id}, config.get("jwtPrivateKey"))
+    return token
+}
+
 // the model
 const Admin = mongoose.model('admin', adminSchema)
+
 
 // validating the input
 const validateAdmin = (admin) => {

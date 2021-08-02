@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const {User, validate} = require('../models/user')
 const bcrypt = require('bcrypt')
+const _ = require("lodash")
+const jwt = require("jsonwebtoken")
+const config = require('config')
 
 // get
 router.get('/', async (req, res) => {
@@ -24,7 +27,7 @@ router.post('/', async (req, res) => {
 
     // checking out if a user exists
     const email = await User.findOne({email: req.body.email})
-    if (email) return res.status(400).send('Invalid email or password')
+    if (email) return res.status(400).send('Invalid email')
 
     // creating the user
     let user =  new User(req.body)
@@ -34,7 +37,9 @@ router.post('/', async (req, res) => {
     user.password = await bcrypt.hash(user.password, salt)
     await user.save()
 
-    res.send(user)
+    // creating a token
+    const token = user.generateAuthToken()
+    res.header("x-auth-token", token).send(_.pick(user, ["_id", "name", "email"]))
 })
 
 // updating a user
