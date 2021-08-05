@@ -13,6 +13,7 @@ const admin = require('./routes/admins')
 const auth = require('./routes/auth')
 const adminAuth = require('./routes/adminAuth')
 const document = require('./routes/documents')
+const flashcards = require("./routes/flashcards")
 
 // errors imports
 const logger = require("./utils/logger")
@@ -21,7 +22,7 @@ const notFoundErrors = require("./middlewares/errors")
 
 // checking if jwt is defined
 if (!config.get("jwtPrivateKey")){
-    () => logger.error("FATAL ERROR!! JWT is not defined!")
+    logger.error("FATAL ERROR!! JWT is not defined!")
     process.exit(1)
 }
 
@@ -41,6 +42,7 @@ app.use('/api/admin', admin)
 app.use('/api/auth', auth)
 app.use('/api/course', document)
 app.use('/api/admin-auth', adminAuth)
+app.use("/api/flashcards", flashcards)
 
 
 // port 
