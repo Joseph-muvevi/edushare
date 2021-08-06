@@ -20,12 +20,12 @@ router.get("/:id", async (req, res) => {
 router.post("/", async(req, res) => {
     const {error} = validate(req.body)
     if (error) return res.status(400).send(error.details[0].message)
-    
+        
+    const flashcard = await new Flashcard(req.body).save()
+
     // checking for plagiarism
     const plagiarism = await Flashcard.findOne({answers : req.body.answers})
     if (plagiarism) return res.status(400).send("Please stop copying..!")
-
-    const flashcard = await new Flashcard(req.body).save()
     
     res.send(flashcard)
 })

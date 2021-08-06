@@ -14,6 +14,8 @@ const auth = require('./routes/auth')
 const adminAuth = require('./routes/adminAuth')
 const document = require('./routes/documents')
 const flashcards = require("./routes/flashcards")
+const message = require("./routes/messages")
+const review = require("./routes/reviews")
 
 // errors imports
 const logger = require("./utils/logger")
@@ -37,13 +39,22 @@ app.use(notFoundErrors)
 // middlewares
 app.use(cors());
 app.use(express.json())
-app.use('/api/users', users)
-app.use('/api/admin', admin)
-app.use('/api/auth', auth)
-app.use('/api/course', document)
-app.use('/api/admin-auth', adminAuth)
+app.use("/api/users", users)
+app.use("/api/admin", admin)
+app.use("/api/auth", auth)
+app.use("/api/course", document)
+app.use("/api/admin-auth", adminAuth)
 app.use("/api/flashcards", flashcards)
+app.use("/api/review", review)
+app.use("/api/chat", message)
 
+// used in production to serve client files
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+    });
+}
 
 // port 
 const port = process.env.PORT || 8080
