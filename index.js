@@ -23,10 +23,10 @@ const serverError = require("./middlewares/errors")
 const notFoundErrors = require("./middlewares/errors")
 
 // checking if jwt is defined
-if (!config.get("jwtPrivateKey")){
-    logger.error("FATAL ERROR!! JWT is not defined!")
-    process.exit(1)
-}
+if (!config.get("jwtPrivateKey")){() => {
+  logger.error("FATAL ERROR!! JWT is not defined!")
+  process.exit(1)
+}}
 
 
 // DB connection

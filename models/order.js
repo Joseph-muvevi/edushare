@@ -23,7 +23,7 @@ const orderSchema = new Schema({
         type: Number,
         required: true
     },
-    date_added: {
+    date: {
         type: Date,
         default: Date.now
     }

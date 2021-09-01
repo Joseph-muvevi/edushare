@@ -21,7 +21,7 @@ transports:[
     new transports.MongoDB({
         level: 'error',
         //mongo database connection link
-        db : 'mongodb://localhost/logs',
+        db : 'mongodb://localhost/edushare/logs',
         options: {
             useUnifiedTopology: true
         },

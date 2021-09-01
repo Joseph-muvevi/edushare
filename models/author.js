@@ -1,36 +1,38 @@
-const Joi = require('joi')
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
+const Joi = require("Joi")
 const Schema = mongoose.Schema
-const jwt = require("jsonwebtoken")
-const config = require('config')
 
-// the admin schema
-const adminSchema = new Schema({
-    firstname : {
+// the authorsschema
+const authorSchema = new Schema({
+    firstname: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 100
+        minLength: 5,
+        maxLength: 100
     },
-    lastname : {
+    lastname: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 100
+        minLength: 5,
+        maxLength: 100
     },
-    username : {
-        type: String,
-        unique: true,
+    experience: {
+        type: Number,
         required: true,
-        minlength: 5,
-        maxlength: 100
+        min: 1,
+        max: 80,
+    },
+    courses: {
+        type: Array,
+        required: true,
+        minLength: 5,
+        maxLength: 100
     },
     location: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 100
-        
+        minLength: 5,
+        maxLength: 100
     },
     email: {
         type: String,
@@ -53,30 +55,21 @@ const adminSchema = new Schema({
     timestamps: true
 })
 
-// adminshema methods
-adminSchema.methods.generateAdminToken = function(){
-    const token = jwt.sign({_id: this._id}, config.get("jwtPrivateKey"))
-    return token
-}
-
 // the model
-const Admin = mongoose.model('admin', adminSchema)
+const Author = mongoose.model("author", authorSchema)
 
-
-// validating the input
-const validateAdmin = (admin) => {
-    const adminSchema = Joi.object({
+// joi validation 
+const validate = (author) => {
+    const schema = Joi.object({
         firstname: Joi.string().required().min(5).max(100),
         lastname: Joi.string().required().min(5).max(100),
-        username: Joi.string().required().min(5).max(100),
+        experience: Joi.number().required().min(1).max(80),
         location: Joi.string().required().min(5).max(100),
         email: Joi.string().required().min(5).max(100).email({minDomainSegments: 2, tlds : { allow : ['com', 'net', 'org'] }}),
         password: Joi.string().required().min(5).max(100).pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
     })
-
-    return adminSchema.validate(admin)
+    return schema.validate(author)
 }
 
 // exports
-module.exports.Admin = Admin
-module.exports.validate = validateAdmin
+module.exports.Author = Author
