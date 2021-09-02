@@ -20,6 +20,8 @@ const flashcardSchema = new Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    timestamps: true
 })
 
 // creating the model 

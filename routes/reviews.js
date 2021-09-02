@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
     
     // checking for review plagiarism
     const plagiarism = await Review.findOne({reviewContent: req.body.reviewContent})
-    if (plagiarism) return res.status(400).send("Please stop copying others review")
+    if (plagiarism) return res.status(400).send("Please stop copying other's review")
 
     res.send(review)
 })

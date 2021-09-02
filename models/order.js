@@ -27,6 +27,8 @@ const orderSchema = new Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    timestamps: true
 })
 
 // the order model

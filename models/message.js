@@ -19,6 +19,8 @@ const messageSchema = new Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    timestamps: true
 })
 
 // the message model

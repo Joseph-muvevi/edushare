@@ -81,6 +81,8 @@ const documentSchema = new Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    timestamps: true
 })
 
 // wrapping the schema to a model
