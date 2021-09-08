@@ -1,0 +1,11 @@
+.dashboard{
+    display: flex;
+}
+
+.dashboard-nav{
+    width: 15vw;
+}
+
+.dashboard-main{
+    width: 85vw;
+}

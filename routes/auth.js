@@ -3,6 +3,7 @@ const router = express.Router()
 const Joi = require('joi')
 const {User} = require('../models/user')
 const bcrypt = require('bcrypt')
+const sendEmail = require("../utils/sendEmail");
 
 // the post method
 router.post('/', async (req, res) => {
@@ -19,6 +20,12 @@ router.post('/', async (req, res) => {
     const token = await user.generateAuthToken()
     res.send(token)
 
+})
+
+// reset
+router.post(":/id/token", async (req, res) => {
+    const {error} = validate(req.body)
+    if (error) return res.status(400).send(error.details[0].message)
 })
 
 // joi validation

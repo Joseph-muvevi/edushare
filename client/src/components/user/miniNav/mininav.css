@@ -1,0 +1,23 @@
+.mini-nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: green;
+    width: 100%;
+    min-height: 50px;
+}
+
+.mini-nav-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+}
+
+.mini-nav-ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30vw;
+}
