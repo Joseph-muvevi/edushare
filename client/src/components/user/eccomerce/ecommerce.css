@@ -1,6 +1,5 @@
 .ecommerce-top-cards{
     width: 95%;
-    background-color: aquamarine;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -50,4 +49,32 @@
     box-shadow: 2px 3px 15px black;
     height: 400px;
     padding: 10px;
+}
+
+/* ===========ecomerce totals============== */
+.ecommerce-totals{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 95%;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.ecommerce-totals-item{
+    height: 400px;
+    background-color:  #0077ffcb;
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px black;
+    padding: 10px;
+}
+
+.ecommerce-totals-item-large{
+    height: 500px;
+    background-color:  #0077ffcb;
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px black;
+    padding: 10px;
+    grid-column: 1/3;
 }

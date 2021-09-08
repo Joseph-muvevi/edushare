@@ -5,6 +5,7 @@ import MiniNav from '../miniNav/MiniNav'
 import DashboardTop from './DashboardTop/DashboardTop'
 import {BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom"
 import Ecommerce from '../eccomerce/eccomerce'
+import Myproducts from '../myproduct/Myproducts'
 
 const Dashboard = () => {
   return (
@@ -18,6 +19,7 @@ const Dashboard = () => {
 				<Switch>
           			<Route path="/dashboard/ecommerce" component={withRouter(Ecommerce)}/>
 					<Route path="/dashboard/me" component={withRouter(DashboardTop)}/>
+					<Route path="/dashboard/myproduct" component={withRouter(Myproducts)}/>
 				</Switch>
 			</Router>
 		</div>
