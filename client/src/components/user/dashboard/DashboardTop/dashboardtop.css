@@ -1,5 +1,5 @@
 .dashboard-top-content{
-    width: 90%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -24,7 +24,7 @@
 .dashboard-cards-cards{
     width: 280px;
     height: 280px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
     background-color: #0077ffcb ;
     color: white;
@@ -47,14 +47,14 @@
 
 
 .dashboard-top-graph-line{
-    width: 700px;
+    width: 760px;
     height: 400px;
     background-color: red;
     display: flex;
     justify-content: center;
     align-items:center;
-    border-radius: 5px;
-    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.815);
 }
 .dashboard-top-graph-pie{
     width: 490px;
@@ -63,8 +63,8 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    border-radius: 5px;
-    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.815);
 }
 
 .dashboard-top-stats{
@@ -82,8 +82,8 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    border-radius: 5px;
-    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px black;
     background-color: #0077ffcb ;
 }
 
@@ -96,9 +96,9 @@
 
 .dashboard-sales-stats-card{
     margin-top: 30px;
-    width: 380px;
+    width: 400px;
     min-height: 50vh;
-    border-radius: 5px;
-    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px black;
     background-color: #0077ffcb ;
 }

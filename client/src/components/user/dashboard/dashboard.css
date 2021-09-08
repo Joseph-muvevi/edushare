@@ -9,3 +9,9 @@
 .dashboard-main{
     width: 85vw;
 }
+
+.dashboard-children{
+    width: 50vw;
+    margin: auto;
+    background-color: aqua;
+}

@@ -1,7 +1,7 @@
 import { faChartPie, faCartPlus, faChartLine, faWallet, faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import "./navbar.css"
 
 const Navbar = () => {
@@ -12,26 +12,26 @@ const Navbar = () => {
                 <h3 className="navbar-content-li">Image here</h3>
             </div>
             <ul className="navbar-content-ul">
-                <Link to="/dashboard" className="navbar-content-li">
+                <NavLink to="/dashboard/me" className="navbar-content-li">
                     <FontAwesomeIcon icon={faChartPie}/>
                     Dashboard
-                </Link>
-                <Link to="/dashboard" className="navbar-content-li">
+                </NavLink>
+                <NavLink to="/dashboard" className="navbar-content-li">
                     <FontAwesomeIcon icon={faCartPlus}/>
                     Product
-                </Link>
-                <Link to="/dashboard" className="navbar-content-li">
+                </NavLink>
+                <NavLink to="/dashboard" className="navbar-content-li">
                     <FontAwesomeIcon icon={faChartLine}/>
                     Analitics
-                </Link>
-                <Link to="/dashboard" className="navbar-content-li">
+                </NavLink>
+                <NavLink to="/dashboard/ecommerce" className="navbar-content-li">
                     <FontAwesomeIcon icon={faWallet}/>
                     Ecommerce
-                </Link>
-                <Link to="/dashboard" className="navbar-content-li">
+                </NavLink>
+                <NavLink to="/dashboard" className="navbar-content-li">
                     <FontAwesomeIcon icon={faComments}/>
                     Messaging
-                </Link>
+                </NavLink>
             </ul>
         </div>
     )
