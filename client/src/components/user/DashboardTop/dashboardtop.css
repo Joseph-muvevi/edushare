@@ -22,8 +22,8 @@
 
 
 .dashboard-cards-cards{
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     border-radius: 10px;
     box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
     background-color: #0077ffcb ;
@@ -39,25 +39,66 @@
 
 .dashboard-top-graph{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
+
 .dashboard-top-graph-line{
-    width: 600px;
+    width: 700px;
     height: 400px;
-    background-color: #0077ffcb;
+    background-color: red;
     display: flex;
     justify-content: center;
     align-items:center;
+    border-radius: 5px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
 }
 .dashboard-top-graph-pie{
-    flex-grow: 1;
-    width: 300px;
+    width: 490px;
     height: 400px;
     background-color: #0077ffcb;
     display: flex;
     justify-content: center;
     align-items:center;
+    border-radius: 5px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+}
+
+.dashboard-top-stats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.dashboard-sales-stats-content{
+    margin-top: 30px;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 5px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    background-color: #0077ffcb ;
+}
+
+.dashboard-sales-stats-cards{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-sales-stats-card{
+    margin-top: 30px;
+    width: 380px;
+    min-height: 50vh;
+    border-radius: 5px;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.774);
+    background-color: #0077ffcb ;
 }

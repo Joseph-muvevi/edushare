@@ -1,5 +1,8 @@
 import React from 'react'
+import DashboardSalesStats from './DashboardSalesStats/DashboardSalesStats'
 import DashboardTopGraph from './DashboardTopGraph/DashboardTopGraph'
+import DashboardTopTable from './DashboardTopTable/DashboardTopTable'
+import DashboardTopUsers from './DashboardTopUsers/DashboardTopUsers'
 import DashboardCards from './DashTopCards/DashboardCards'
 
 const DashboardTop = () => {
@@ -11,6 +14,9 @@ const DashboardTop = () => {
                 </div>
                 <div className="dashboard-top-content-graphs">
                     <DashboardTopGraph/>
+                    <DashboardTopTable/>
+                    <DashboardTopUsers/>
+                    <DashboardSalesStats/>
                 </div>
             </div>
         </div>
